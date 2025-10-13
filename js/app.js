@@ -323,13 +323,11 @@ class RoomBookingApp {
                 booking_date: Date.now()
             };
 
-            // Validate required fields
-            if (!bookingData.room_id || !bookingData.department_id || !bookingData.title ||
-                !bookingData.date_gregorian || !bookingData.start_time || !bookingData.end_time ||
-                !bookingData.contact_person) {
-                throw new Error('جميع الحقول المطلوبة يجب ملؤها');
-            }
-
+          // Validate required fields (Only Room, Department, Date, Times)
+    if (!bookingData.room_id || !bookingData.department_id || 
+        !bookingData.date_gregorian || !bookingData.start_time || !bookingData.end_time) {
+        throw new Error('يجب ملء القاعة والقسم والتاريخ وأوقات الحجز');
+    }
             // Check for conflicts again
             await this.loadBookings();
             const conflicts = this.bookings.filter(booking => {
