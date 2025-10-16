@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html xmlns:o="urn:schemas-microsoft-com:office:office" 
+      xmlns:x="urn:schemas-microsoft-com:office:excel" 
+      xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="ProgId" content="Excel.Sheet">
+    <meta name="Generator" content="Microsoft Excel">
+    <style>
+        <!--
+        .header {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            font-weight: bold;
+            text-align: center;
+            border: 1px solid #000;
+            font-size: 12pt;
+        }
+        .subheader {
+            background: linear-gradient(45deg, #28a745, #20c997);
+            color: white;
+            font-weight: bold;
+            text-align: center;
+            border: 1px solid #000;
+            font-size: 11pt;
+        }
+        .data {
+            border: 1px solid #ccc;
+            text-align: right;
+            direction: rtl;
+            font-size: 10pt;
+            padding: 5px;
+        }
+        .number {
+            text-align: center;
+            border: 1px solid #ccc;
+            padding: 5px;
+        }
+        .status-confirmed {
+            background-color: #d4edda;
+            color: #155724;
+            text-align: center;
+            border: 1px solid #ccc;
+            font-weight: bold;
+        }
+        .status-cancelled {
+            background-color: #f8d7da;
+            color: #721c24;
+            text-align: center;
+            border: 1px solid #ccc;
+            font-weight: bold;
+        }
+        .room-discussion {
+            background: linear-gradient(135deg, #cce5ff, #a3d5ff);
+            border: 1px solid #17a2b8;
+            color: #004085;
+            font-weight: bold;
+        }
+        .room-training {
+            background: linear-gradient(135deg, #ffe5cc, #ffd199);
+            border: 1px solid #fd7e14;
+            color: #7d3d0a;
+            font-weight: bold;
+        }
+        .total-row {
+            background: linear-gradient(45deg, #e9ecef, #dee2e6);
+            font-weight: bold;
+            border: 2px solid #000;
+        }
+        .icon-cell {
+            text-align: center;
+            font-size: 14pt;
+            border: 1px solid #ccc;
+            padding: 8px;
+        }
+        .dept-linguistics { background-color: #fff3cd; }
+        .dept-literature { background-color: #d4edda; }
+        .dept-media { background-color: #cce5ff; }
+        .dept-education { background-color: #f8d7da; }
+        .dept-history { background-color: #e2e3e5; }
+        .dept-translation { background-color: #d1ecf1; }
+        .dept-external { background-color: #ffeaa7; }
+        .dept-other { background-color: #fab1a0; }
+        -->
+    </style>
+</head>
+
+<body>
+
+<!-- ورقة الحجوزات الرئيسية -->
+<table border="1" cellpadding="0" cellspacing="0" width="100%" style="border-collapse: collapse;">
+    <tr>
+        <td colspan="13" class="header" style="height: 50px; font-size: 18pt;">
+            🏛️ نظام حجز قاعات كلية اللغة العربية - الإصدار المحدث
+        </td>
+    </tr>
+    <tr>
+        <td colspan="13" class="subheader" style="height: 30px;">
+            📋 سجل الحجوزات - نظام الأيقونات التفاعلي
+        </td>
+    </tr>
+    <tr style="height: 35px;">
+        <td class="header" width="6%">رقم الحجز</td>
+        <td class="header" width="12%">عنوان الحجز</td>
+        <td class="header" width="8%">رمز القاعة</td>
+        <td class="header" width="12%">القاعة</td>
+        <td class="header" width="6%">رمز القسم</td>
+        <td class="header" width="12%">القسم</td>
+        <td class="header" width="8%">التاريخ الميلادي</td>
+        <td class="header" width="8%">التاريخ الهجري</td>
+        <td class="header" width="6%">البداية</td>
+        <td class="header" width="6%">النهاية</td>
+        <td class="header" width="10%">اسم المسؤول</td>
+        <td class="header" width="8%">رقم الهاتف</td>
+        <td class="header" width="6%">الحالة</td>
+    </tr>
+    
+    <!-- بيانات تجريبية مع الأيقونات -->
+    <tr style="height: 30px;">
+        <td class="number">B001</td>
+        <td class="data">مناقشة رسالة ماجستير في النحو</td>
+        <td class="icon-cell room-discussion">💬</td>
+        <td class="room-discussion">قاعة المناقشة</td>
+        <td class="icon-cell dept-linguistics">🗣️</td>
+        <td class="dept-linguistics">قسم اللغويات</td>
+        <td class="number">2024-01-15</td>
+        <td class="data">5 رجب 1445هـ</td>
+        <td class="number">10:00</td>
+        <td class="number">12:00</td>
+        <td class="data">د. أحمد محمد النحوي</td>
+        <td class="number">0501234567</td>
+        <td class="status-confirmed">✅ مؤكد</td>
+    </tr>
+    
+    <tr style="height: 30px;">
+        <td class="number">B002</td>
+        <td class="data">دورة تدريبية في علوم البلاغة</td>
+        <td class="icon-cell room-training">👨‍🏫</td>
+        <td class="room-training">قاعة التدريب</td>
+        <td class="icon-cell dept-literature">📖</td>
+        <td class="dept-literature">قسم الأدب والبلاغة</td>
+        <td class="number">2024-01-16</td>
+        <td class="data">6 رجب 1445هـ</td>
+        <td class="number">14:00</td>
+        <td class="number">16:00</td>
+        <td class="data">د. فاطمة عبدالله البلاغية</td>
+        <td class="number">0509876543</td>
+        <td class="status-confirmed">✅ مؤكد</td>
+    </tr>
+    
+    <tr style="height: 30px;">
+        <td class="number">B003</td>
+        <td class="data">ورشة الإعلام الرقمي والتواصل</td>
+        <td class="icon-cell room-discussion">💬</td>
+        <td class="room-discussion">قاعة المناقشة</td>
+        <td class="icon-cell dept-media">📡</td>
+        <td class="dept-media">قسم الإعلام</td>
+        <td class="number">2024-01-20</td>
+        <td class="data">10 رجب 1445هـ</td>
+        <td class="number">09:00</td>
+        <td class="number">11:00</td>
+        <td class="data">د. سعد الحارثي الإعلامي</td>
+        <td class="number">0555123456</td>
+        <td class="status-confirmed">✅ مؤكد</td>
+    </tr>
+    
+    <tr style="height: 30px;">
+        <td class="number">B004</td>
+        <td class="data">اجتماع لجنة المناهج التربوية</td>
+        <td class="icon-cell room-training">👨‍🏫</td>
+        <td class="room-training">قاعة التدريب</td>
+        <td class="icon-cell dept-education">🎓</td>
+        <td class="dept-education">قسم التربية</td>
+        <td class="number">2024-01-22</td>
+        <td class="data">12 رجب 1445هـ</td>
+        <td class="number">13:00</td>
+        <td class="number">15:00</td>
+        <td class="data">د. مريم أحمد التربوية</td>
+        <td class="number">0502345678</td>
+        <td class="status-confirmed">✅ مؤكد</td>
+    </tr>
+    
+    <tr style="height: 30px;">
+        <td class="number">B005</td>
+        <td class="data">محاضرة تاريخ الأندلس والحضارة</td>
+        <td class="icon-cell room-discussion">💬</td>
+        <td class="room-discussion">قاعة المناقشة</td>
+        <td class="icon-cell dept-history">📜</td>
+        <td class="dept-history">قسم التاريخ</td>
+        <td class="number">2024-01-25</td>
+        <td class="data">15 رجب 1445هـ</td>
+        <td class="number">10:00</td>
+        <td class="number">12:00</td>
+        <td class="data">د. عبدالله الشريف المؤرخ</td>
+        <td class="number">0556789012</td>
+        <td class="status-confirmed">✅ مؤكد</td>
+    </tr>
+    
+    <tr style="height: 30px;">
+        <td class="number">B006</td>
+        <td class="data">ورشة الترجمة الفورية</td>
+        <td class="icon-cell room-training">👨‍🏫</td>
+        <td class="room-training">قاعة التدريب</td>
+        <td class="icon-cell dept-translation">🌍</td>
+        <td class="dept-translation">قسم اللغات والترجمة</td>
+        <td class="number">2024-01-28</td>
+        <td class="data">18 رجب 1445هـ</td>
+        <td class="number">15:00</td>
+        <td class="number">17:00</td>
+        <td class="data">د. خالد المترجم الدولي</td>
+        <td class="number">0557890123</td>
+        <td class="status-confirmed">✅ مؤكد</td>
+    </tr>
+    
+    <tr style="height: 30px;">
+        <td class="number">B007</td>
+        <td class="data">مؤتمر الشراكة المجتمعية</td>
+        <td class="icon-cell room-discussion">💬</td>
+        <td class="room-discussion">قاعة المناقشة</td>
+        <td class="icon-cell dept-external">🏢</td>
+        <td class="dept-external">حجز من خارج الكلية</td>
+        <td class="number">2024-02-01</td>
+        <td class="data">22 رجب 1445هـ</td>
+        <td class="number">08:00</td>
+        <td class="number">12:00</td>
+        <td class="data">م. نورا المجتمع المدني</td>
+        <td class="number">0558901234</td>
+        <td class="status-confirmed">✅ مؤكد</td>
+    </tr>
+    
+    <!-- صفوف فارغة للإدخال الجديد -->
+    <tr style="height: 30px;">
+        <td class="data"></td>
+        <td class="data"></td>
+        <td class="icon-cell"></td>
+        <td class="data"></td>
+        <td class="icon-cell"></td>
+        <td class="data"></td>
+        <td class="data"></td>
+        <td class="data"></td>
+        <td class="data"></td>
+        <td class="data"></td>
+        <td class="data"></td>
+        <td class="data"></td>
+        <td class="data"></td>
+    </tr>
+    
+    <!-- صف الإجمالي -->
+    <tr style="height: 35px;">
+        <td colspan="3" class="total-row">📊 إجمالي الحجوزات:</td>
+        <td class="total-row">7</td>
+        <td colspan="9" class="total-row">آخر تحديث: اليوم - كلمة مرور المدير: 091986</td>
+    </tr>
+</table>
+
+<br><br>
+
+<!-- دليل الأيقونات والألوان -->
+<table border="1" cellpadding="5" cellspacing="0" width="80%" style="border-collapse: collapse;">
+    <tr>
+        <td colspan="4" class="header" style="height: 35px;">🎨 دليل الأيقونات والألوان</td>
+    </tr>
+    
+    <!-- قسم القاعات -->
+    <tr>
+        <td colspan="4" class="subheader" style="height: 25px;">🏛️ أيقونات القاعات</td>
+    </tr>
+    <tr style="height: 25px;">
+        <td class="icon-cell room-discussion" width="10%">💬</td>
+        <td class="room-discussion" width="40%">قاعة المناقشة - سعة 50 شخص</td>
+        <td class="icon-cell room-training" width="10%">👨‍🏫</td>
+        <td class="room-training" width="40%">قاعة التدريب - سعة 30 شخص</td>
+    </tr>
+    
+    <!-- قسم الأقسام -->
+    <tr>
+        <td colspan="4" class="subheader" style="height: 25px;">🏢 أيقونات الأقسام</td>
+    </tr>
+    <tr style="height: 25px;">
+        <td class="icon-cell dept-linguistics">🗣️</td>
+        <td class="dept-linguistics">قسم اللغويات</td>
+        <td class="icon-cell dept-literature">📖</td>
+        <td class="dept-literature">قسم الأدب والبلاغة</td>
+    </tr>
+    <tr style="height: 25px;">
+        <td class="icon-cell dept-media">📡</td>
+        <td class="dept-media">قسم الإعلام</td>
+        <td class="icon-cell dept-education">🎓</td>
+        <td class="dept-education">قسم التربية</td>
+    </tr>
+    <tr style="height: 25px;">
+        <td class="icon-cell dept-history">📜</td>
+        <td class="dept-history">قسم التاريخ</td>
+        <td class="icon-cell dept-translation">🌍</td>
+        <td class="dept-translation">قسم اللغات والترجمة</td>
+    </tr>
+    <tr style="height: 25px;">
+        <td class="icon-cell dept-external">🏢</td>
+        <td class="dept-external">حجز من خارج الكلية</td>
+        <td class="icon-cell dept-other">⋯</td>
+        <td class="dept-other">أخرى</td>
+    </tr>
+</table>
+
+<br><br>
+
+<!-- إحصائيات مفصلة بالأيقونات -->
+<table border="1" cellpadding="0" cellspacing="0" width="90%" style="border-collapse: collapse;">
+    <tr>
+        <td colspan="7" class="header" style="height: 35px;">📈 إحصائيات الحجز الشهرية مع الأيقونات</td>
+    </tr>
+    <tr style="height: 30px;">
+        <td class="subheader" width="8%">رمز</td>
+        <td class="subheader" width="27%">القسم</td>
+        <td class="subheader" width="13%">الأسبوع 1</td>
+        <td class="subheader" width="13%">الأسبوع 2</td>
+        <td class="subheader" width="13%">الأسبوع 3</td>
+        <td class="subheader" width="13%">الأسبوع 4</td>
+        <td class="subheader" width="13%">المجموع</td>
+    </tr>
+    
+    <tr style="height: 25px;">
+        <td class="icon-cell dept-linguistics">🗣️</td>
+        <td class="dept-linguistics">قسم اللغويات</td>
+        <td class="number">3</td>
+        <td class="number">2</td>
+        <td class="number">4</td>
+        <td class="number">3</td>
+        <td class="total-row">12</td>
+    </tr>
+    
+    <tr style="height: 25px;">
+        <td class="icon-cell dept-literature">📖</td>
+        <td class="dept-literature">قسم الأدب والبلاغة</td>
+        <td class="number">2</td>
+        <td class="number">3</td>
+        <td class="number">2</td>
+        <td class="number">2</td>
+        <td class="total-row">9</td>
+    </tr>
+    
+    <tr style="height: 25px;">
+        <td class="icon-cell dept-media">📡</td>
+        <td class="dept-media">قسم الإعلام</td>
+        <td class="number">2</td>
+        <td class="number">1</td>
+        <td class="number">3</td>
+        <td class="number">2</td>
+        <td class="total-row">8</td>
+    </tr>
+    
+    <tr style="height: 25px;">
+        <td class="icon-cell dept-education">🎓</td>
+        <td class="dept-education">قسم التربية</td>
+        <td class="number">1</td>
+        <td class="number">2</td>
+        <td class="number">2</td>
+        <td class="number">3</td>
+        <td class="total-row">8</td>
+    </tr>
+    
+    <tr style="height: 25px;">
+        <td class="icon-cell dept-history">📜</td>
+        <td class="dept-history">قسم التاريخ</td>
+        <td class="number">2</td>
+        <td class="number">1</td>
+        <td class="number">1</td>
+        <td class="number">2</td>
+        <td class="total-row">6</td>
+    </tr>
+    
+    <tr style="height: 25px;">
+        <td class="icon-cell dept-translation">🌍</td>
+        <td class="dept-translation">قسم اللغات والترجمة</td>
+        <td class="number">1</td>
+        <td class="number">2</td>
+        <td class="number">1</td>
+        <td class="number">1</td>
+        <td class="total-row">5</td>
+    </tr>
+    
+    <tr style="height: 25px;">
+        <td class="icon-cell dept-external">🏢</td>
+        <td class="dept-external">حجز من خارج الكلية</td>
+        <td class="number">1</td>
+        <td class="number">0</td>
+        <td class="number">1</td>
+        <td class="number">1</td>
+        <td class="total-row">3</td>
+    </tr>
+    
+    <tr style="height: 30px;">
+        <td class="total-row">📊</td>
+        <td class="total-row">الإجمالي الكلي</td>
+        <td class="total-row">12</td>
+        <td class="total-row">11</td>
+        <td class="total-row">14</td>
+        <td class="total-row">14</td>
+        <td class="total-row">51</td>
+    </tr>
+</table>
+
+<br><br>
+
+<!-- إحصائيات القاعات -->
+<table border="1" cellpadding="5" cellspacing="0" width="70%" style="border-collapse: collapse;">
+    <tr>
+        <td colspan="5" class="header" style="height: 35px;">🏛️ إحصائيات استخدام القاعات</td>
+    </tr>
+    <tr style="height: 25px;">
+        <td class="subheader" width="15%">رمز القاعة</td>
+        <td class="subheader" width="35%">اسم القاعة</td>
+        <td class="subheader" width="20%">عدد الحجوزات</td>
+        <td class="subheader" width="15%">نسبة الاستخدام</td>
+        <td class="subheader" width="15%">التقييم</td>
+    </tr>
+    
+    <tr style="height: 25px;">
+        <td class="icon-cell room-discussion">💬</td>
+        <td class="room-discussion">قاعة المناقشة (50 شخص)</td>
+        <td class="number">28</td>
+        <td class="number">55%</td>
+        <td class="status-confirmed">ممتاز</td>
+    </tr>
+    
+    <tr style="height: 25px;">
+        <td class="icon-cell room-training">👨‍🏫</td>
+        <td class="room-training">قاعة التدريب (30 شخص)</td>
+        <td class="number">23</td>
+        <td class="number">45%</td>
+        <td class="status-confirmed">جيد جداً</td>
+    </tr>
+    
+    <tr style="height: 25px;">
+        <td class="total-row">📊</td>
+        <td class="total-row">إجمالي الاستخدام</td>
+        <td class="total-row">51</td>
+        <td class="total-row">100%</td>
+        <td class="total-row">فعال</td>
+    </tr>
+</table>
+
+<br><br>
+
+<!-- معلومات النظام المحدثة -->
+<table border="1" cellpadding="5" cellspacing="0" width="60%" style="border-collapse: collapse;">
+    <tr>
+        <td colspan="2" class="header" style="height: 35px;">⚙️ معلومات النظام المحدث</td>
+    </tr>
+    <tr>
+        <td class="subheader" width="40%">اسم النظام</td>
+        <td class="data">🏛️ نظام حجز قاعات كلية اللغة العربية - الإصدار التفاعلي</td>
+    </tr>
+    <tr>
+        <td class="subheader">كلمة مرور المدير</td>
+        <td class="data">🔐 091986</td>
+    </tr>
+    <tr>
+        <td class="subheader">نوع التصميم</td>
+        <td class="data">🎨 أيقونات تفاعلية مع ألوان متدرجة</td>
+    </tr>
+    <tr>
+        <td class="subheader">تاريخ الإنشاء</td>
+        <td class="data">📅 2024</td>
+    </tr>
+    <tr>
+        <td class="subheader">آخر تحديث</td>
+        <td class="data">🕐 اليوم - تحديث الأيقونات والألوان</td>
+    </tr>
+    <tr>
+        <td class="subheader">حالة النظام</td>
+        <td class="status-confirmed">✅ نشط ومحدث</td>
+    </tr>
+    <tr>
+        <td class="subheader">المميزات الجديدة</td>
+        <td class="data">🎯 أيقونات تفاعلية، ألوان مميزة، سهولة الاستخدام</td>
+    </tr>
+</table>
+
+<br><br>
+
+<!-- تعليمات الاستخدام -->
+<table border="1" cellpadding="5" cellspacing="0" width="80%" style="border-collapse: collapse;">
+    <tr>
+        <td colspan="2" class="header" style="height: 35px;">📖 تعليمات الاستخدام السريع</td>
+    </tr>
+    <tr>
+        <td class="subheader" width="30%">للحجز الجديد</td>
+        <td class="data">انقر على أيقونة القاعة المطلوبة (💬 للمناقشة، 👨‍🏫 للتدريب) ثم اختر أيقونة القسم</td>
+    </tr>
+    <tr>
+        <td class="subheader">لعرض الحجوزات</td>
+        <td class="data">استخدم الألوان لتمييز القاعات: الأزرق للمناقشة، البرتقالي للتدريب</td>
+    </tr>
+    <tr>
+        <td class="subheader">للتعديل (المدير)</td>
+        <td class="data">استخدم كلمة المرور: 091986 للوصول إلى صلاحيات التعديل والحذف</td>
+    </tr>
+    <tr>
+        <td class="subheader">قراءة الإحصائيات</td>
+        <td class="data">تابع الأيقونات والألوان لفهم توزيع الحجوزات حسب الأقسام والقاعات</td>
+    </tr>
+</table>
+
+</body>
+</html>
